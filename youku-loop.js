@@ -13,9 +13,12 @@ var _loophandler = function() {
     if (parseFloat(data.alltime) - parseFloat(data.time) < 0.5) {
         embed.nsseek(0);
     }
-    console.log('looping');
 };
 var interval_id = setInterval(_loophandler, 400);
+
+/* disable continouse play, so it won't jump to another
+ * page before _loophandler is called */
+if ( typeof setPf === 'function' ) setPf({'checked':false});
 
 /* icon display and events */
 var loop_icon = new Element('span',
@@ -23,16 +26,22 @@ var loop_icon = new Element('span',
             'id'    : '_ykl_oop_',
             'style' : 'color:red;cursor:pointer;',
         });
-loop_icon.update('&#8734;&nbsp;');
+loop_icon.update('&#8734; '); /*nbsp show as a ? in IE6*/
 
 var title = $('subtitle');
-title.insert({'top' : loop_icon});
+if (title) {
+    /* standalone pages or video albums */
+    title.insert({'top' : loop_icon});
+} else {
+    /* play list pages */
+    $$('h1 span')[0].insert({'after' : loop_icon});
+    /* do not handle error here, if it failed to find
+     * a object to place the icon, just don't show it*/
+}
 
 loop_icon.observe("click", function(event) {
     clearInterval(interval_id);
-    title.removeChild(loop_icon);
+    loop_icon.remove();
 });
 })()
 )
-    
-
