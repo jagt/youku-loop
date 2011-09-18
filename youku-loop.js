@@ -1,33 +1,37 @@
 javascript: void(
 (function() {
-/* TODO click on the icon to stop looping */
-/* TODO add adjustment */
-var embed = document.getElementById('movie_player');
-if (!embed.getNsData || document.getElementById('_ykl_oop_')) return; 
+/* TODO add adjustment widgets maybe */
+/* TODO movie player still accept nsseek when paused,
+ *      so maybe it doesn't need to loop so frequently */
+/* IE6 has a limit of 508 chars of bookmarklet, so better
+ * keep compressed length under 500
+ * use prototype.js for better size */
+var embed = $('movie_player');
+if (!embed.getNsData || $('_ykl_oop_')) return; 
 var _loophandler = function() {
     var data = embed.getNsData();
-    var alltime = parseFloat(data.alltime);
-    var time = parseFloat(data.time);
-    if (alltime - time < 0.5) {
+    if (parseFloat(data.alltime) - parseFloat(data.time) < 0.5) {
         embed.nsseek(0);
     }
+    console.log('looping');
 };
 var interval_id = setInterval(_loophandler, 400);
 
 /* icon display and events */
-var loop_icon = document.createElement('span');
-loop_icon.style.cursor = 'pointer';
-loop_icon.style.color  = 'red';
-loop_icon.innerHTML = '&#8734;&nbsp';
-loop_icon.id = '_ykl_oop_';
+var loop_icon = new Element('span',
+        {
+            'id'    : '_ykl_oop_',
+            'style' : 'color:red;cursor:pointer;',
+        });
+loop_icon.update('&#8734;&nbsp;');
 
-var title = document.getElementById('subtitle');
-title.insertBefore(loop_icon, title.firstChild);
+var title = $('subtitle');
+title.insert({'top' : loop_icon});
 
-loop_icon.addEventListener("click", function() {
+loop_icon.observe("click", function(event) {
     clearInterval(interval_id);
     title.removeChild(loop_icon);
-}, false);
+});
 })()
 )
     
