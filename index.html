@@ -1,77 +1,130 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-
-  <title>jagt/youku-loop @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #98839a;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #677c65; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #677c65; }
-    h3 { text-align: center; color: #677c65; }
-    a { color: #677c65; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+    <meta charset="utf-8"/>
+    <title>优酷循环播放</title>
+    <meta name="description" content="在浏览器中循环播放优酷视频。">
+    <meta name="keywords" content="youku-loop, youku, loop, javascripts, bookmarklet,优酷,视频,自动,重复,单曲,循环,循环播放,重放,浏览器插件,书签,收藏夹插件" />
+    <link rel="stylesheet" href="layout.css" />
+    <!-- Javascript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery. fall back to local if necessary --> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="jquery-1.6.4.min.js"><\/script>')</script>
 </head>
-
 <body>
-  <a href="http://github.com/jagt/youku-loop"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+<div id="wrapper">
 
-  <div id="container">
+<h1>优酷循环播放</h1>
+<p><span id="intro">想让优酷上的视频循环播放？恭喜你找对地方了！<br />将下面的图标拖放到书签栏开始使用</span></p>
+<div id="buttondiv">
+    <a id="bigbutton" href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a>
+</div>
 
-    <div class="download">
-      <a href="http://github.com/jagt/youku-loop/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/jagt/youku-loop/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+<h2>使用方法</h2>
+<ol>
+<li>
+<p>将上面的按钮拖入书签栏，或将此链接<a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a>放入收藏夹中。如果你不知道具体应该怎么做那么请点击<a href="#tutor" title="具体方法">这里</a>。</p>
+<p><img alt="test" src="howto.png" /></p>
+</li>
+<li>
+<p>在浏览优酷上任意一个页面的时候，点击书签栏上的 <strong>优酷循环播放</strong>，或者再收藏夹中打开次链接也可以。之后再页面上视频标题前面会出现如下图所示的图标，这样视频在播放快结束时会重新开始播放了。</p>
+</li>
+<li>
+<p>如果你想取消循环播放，可以点击上图中的图标，当然直接关闭当前页面也行。</p>
+</li>
+</ol>
+<h2>详细信息</h2>
+<p>此脚本在Windows环境下的以下浏览器上测试过，都能正常使用:</p>
+<ul>
+<li>Google Chrome 14</li>
+<li>FireFox 9</li>
+<li>Internet Explorer 6, 7, 8, 9</li>
+</ul>
+<p>已知问题</p>
+<ul>
+<li>不能在嵌入优酷播放器的非 youku.com 页面上工作</li>
+<li>视频最后一秒钟在循环时总是没有播放</li>
+</ul>
+<p>代码: <a href="https://github.com/jagt/youku-loop">https://github.com/jagt/youku-loop</a><br />
+参考: <a href="http://userscripts.org/scripts/show/84972">YoukuSS userscript</a>, <a href="http://www.delicious.com/help/bookmarklets">Delicious Bookmarklet Help</a></p>
+<p>如果你遇到问题请联系 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#97;&#103;&#116;&#116;&#116;&#49;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#106;&#97;&#103;&#116;&#116;&#116;&#49;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> 。</p>
+<h2 id="tutor">浏览器设置步骤</h2>
 
-    <h1><a href="http://github.com/jagt/youku-loop">youku-loop</a>
-      <span class="small">by <a href="http://github.com/jagt">jagt</a></span></h1>
+<p>选择你当前所使用的浏览器:</p>
+<ul>
+    <li><a class="tabanchor tabactivate" id="tie" href="#msie">Internet Explorer</a></li>
+    <li><a class="tabanchor" id="tff" href="#firefox">Firefox</a></li>
+    <li><a class="tabanchor" id="tcm" href="#chrome">Google chrome</a></li>
+    <li><a class="tabanchor" id="toa" href="#opera">Opera</a></li>
+    <li><a class="tabanchor" id="tsa"href="#safari">Safari</a></li>
+</ul>
 
-    <div class="description">
-      Simple bookmarklet to loop your youku video.
-    </div>
+<div id="msie" class="tabs tutactivate">
 
-    <h2>Authors</h2>
-<p>jagttt (jagt@live.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p> (jagt@live.com)<br/>      </p>
+<p>如下图所示，打开 IE 的书签栏(右键点击菜单，勾选 收藏夹栏，对于 IE6 收藏夹边栏也可)。将此链接 <a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a> 拖放到书签栏上即可。或者右键单击上面的链接，选择 添加到收藏夹，将其保存到 收藏夹栏 中即可。</p>
+<p><img alt="IE 书签栏" src="ie.png" /></p>
+</div>
 
+<div id="firefox" class="tabs">
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/jagt/youku-loop/zipball/master">zip</a> or
-      <a href="http://github.com/jagt/youku-loop/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/jagt/youku-loop</pre>
-    </p>
+<p>如下图所示，打开 FireFox 的书签栏(打开菜单中 选项 - 书签工具栏)。将次链接 <a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a> 拖放到书签栏上即可。</p>
+<p><img alt="FireFox 书签栏" src="firefox.png" /></p>
+</div>
 
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/jagt/youku-loop">jagt/youku-loop</a>
-    </div>
+<div id="chrome" class="tabs">
 
-  </div>
+<p>如下图所示，打开 Chrome 的书签栏(打开菜单中 书签 - 总是显示书签栏，或者使用快捷键 Ctrl-Shift-B)。将此链接 <a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a> 拖放到书签栏上即可。</p>
+<p><img alt="Google Chrome 书签栏" src="chrome.png" /></p>
+</div>
 
-  
+<div id="opera" class="tabs">
+
+<p>如下图所示，打开 Opera 的个人菜单(打开菜单中 显示 - 工具栏)。将此链接 <a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a> 拖放到书签栏上即可。</p>
+<p><img alt="Opera 书签栏" src="opera.png" /></p>
+</div>
+
+<div id="safari" class="tabs">
+
+<p>如下图所示，打开 Safari 的书签栏(打开菜单中 显示 - 显示书签栏)。将此链接 <a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a> 拖放到书签栏上即可。</p>
+<p><img alt="Safari 书签栏" src="safari.png" /></p>
+</div>
+
+<p></div><!-- end of wrapper --></p>
+<script type="text/javascript">
+$(function(){
+    // stupid tabs implementation
+    $('.tabs').hide();
+    $('.tabanchor').removeClass('tabactivate');
+    if ($.browser.msie) {
+       $('#msie').addClass('tutactivate').show();
+       $('#tie').addClass('tabactivate');
+    } else if($.browser.safari) {
+       $('#chrome').addClass('tutactivate').show();
+       $('#tcm').addClass('tabactivate');
+    } else if($.browser.opera) {
+       $('#opera').addClass('tutactivate').show();
+       $('#toa').addClass('tabactivate');
+    } else if($.browser.mozilla) {
+       $('#firefox').addClass('tutactivate').show();
+       $('#tff').addClass('tabactivate');
+    } else {
+       $('.tutactivate').show()
+       $('#tie').addClass('tabactivate');
+    }
+
+$('.tabanchor').click(function(e){
+        e.preventDefault();
+        $('.tabactivate').removeClass('tabactivate');
+        $(this).addClass('tabactivate');
+        $('.tabs').hide();
+        $( $(this).attr('href') ).addClass('tutactivate').show();
+    });
+
+$('#bigbutton').click(function(e){
+        alert('请将图标拖放到书签栏，或者右键单击图标选择添加到收藏夹。');
+        e.preventDefault();
+    });
+
+}());
+</script>
 </body>
-</html>
