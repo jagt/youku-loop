@@ -63,7 +63,7 @@
     <li><a class="tabanchor" id="tff" href="#firefox">Firefox</a></li>
     <li><a class="tabanchor" id="tcm" href="#chrome">Google chrome</a></li>
     <li><a class="tabanchor" id="toa" href="#opera">Opera</a></li>
-    <li><a class="tabanchor" id="tsa"href="#safari">Safari</a></li>
+    <li><a class="tabanchor" id="tsa" href="#safari">Safari</a></li>
 </ul>
 
 <div id="msie" class="tabs tutactivate">
