@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>优酷循环播放</title>
+    <meta name="description" content="在浏览器中循环播放优酷视频。">
+    <meta name="keywords" content="youku-loop, youku, loop, javascripts, bookmarklet,优酷,视频,自动,重复,单曲,循环,循环播放,重放,浏览器插件,书签,收藏夹插件" />
+    <link rel="stylesheet" href="layout.css" />
+    <!-- Javascript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery. fall back to local if necessary --> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="jquery-1.6.4.min.js"><\/script>')</script>
+</head>
+<body>
+<div id="wrapper">
+
+优酷循环播放
+============
+
+
+<span id="intro">想让优酷上的视频循环播放？恭喜你找对地方了！<br />将下面的图标拖放到书签栏开始使用</span>
+
+<div id="buttondiv">
+    <a id="bigbutton" href="__this_is_to_be_replaced__" title="优酷循环播放">优酷循环播放</a>
+</div>
+
+## 使用方法
+
+1.  将上面的按钮拖入书签栏，或将此链接[优酷循环播放][1]放入收藏夹中。如果你不知道具体应该怎么做那么请点击[这里][2]。
+
+    ![test](howto.png)
+
+2.  在浏览优酷上任意一个页面的时候，点击书签栏上的 **优酷循环播放**，或者再收藏夹中打开次链接也可以。之后再页面上视频标题前面会出现如下图所示的图标，这样视频在播放快结束时会重新开始播放了。
+
+3.  如果你想取消循环播放，可以点击上图中的图标，当然直接关闭当前页面也行。
+
+## 详细信息
+
+此脚本在Windows环境下的以下浏览器上测试过，都能正常使用:
+
+* Google Chrome 14
+* FireFox 9
+* Internet Explorer 6, 7, 8, 9
+
+
+已知问题
+
+
+* 不能在嵌入优酷播放器的非 youku.com 页面上工作
+* 视频最后一秒钟在循环时总是没有播放
+
+代码: <https://github.com/jagt/youku-loop>  
+参考: [YoukuSS userscript](http://userscripts.org/scripts/show/84972), [Delicious Bookmarklet Help](http://www.delicious.com/help/bookmarklets)
+
+如果你遇到问题请联系 <jagttt16@gmail.com> 。
+
+<h2 id="tutor">浏览器设置步骤</h2>
+
+选择你当前所使用的浏览器:
+
+<ul>
+    <li><a class="tabanchor tabactivate" id="tie" href="#msie">Internet Explorer</a></li>
+    <li><a class="tabanchor" id="tff" href="#firefox">Firefox</a></li>
+    <li><a class="tabanchor" id="tcm" href="#chrome">Google chrome</a></li>
+    <li><a class="tabanchor" id="toa" href="#opera">Opera</a></li>
+    <li><a class="tabanchor" id="tsa"href="#safari">Safari</a></li>
+</ul>
+
+<div id="msie" class="tabs tutactivate">
+
+如下图所示，打开 IE 的书签栏(右键点击菜单，勾选 收藏夹栏，对于 IE6 收藏夹边栏也可)。将此链接 [优酷循环播放][1] 拖放到书签栏上即可。或者右键单击上面的链接，选择 添加到收藏夹，将其保存到 收藏夹栏 中即可。
+
+![IE 书签栏](ie.png)
+
+
+</div>
+
+
+<div id="firefox" class="tabs">
+
+如下图所示，打开 FireFox 的书签栏(打开菜单中 选项 - 书签工具栏)。将次链接 [优酷循环播放][1] 拖放到书签栏上即可。
+
+![FireFox 书签栏](firefox.png)
+
+</div>
+
+<div id="chrome" class="tabs">
+
+如下图所示，打开 Chrome 的书签栏(打开菜单中 书签 - 总是显示书签栏，或者使用快捷键 Ctrl-Shift-B)。将此链接 [优酷循环播放][1] 拖放到书签栏上即可。
+
+![Google Chrome 书签栏](chrome.png)
+
+</div>
+
+<div id="opera" class="tabs">
+
+如下图所示，打开 Opera 的个人菜单(打开菜单中 显示 - 工具栏)。将此链接 [优酷循环播放][1] 拖放到书签栏上即可。
+
+![Opera 书签栏](opera.png)
+
+</div>
+
+<div id="safari" class="tabs">
+
+如下图所示，打开 Safari 的书签栏(打开菜单中 显示 - 显示书签栏)。将此链接 [优酷循环播放][1] 拖放到书签栏上即可。
+
+![Safari 书签栏](safari.png)
+
+</div>
+
+[1]: __this_is_to_be_replaced__ "优酷循环播放"
+[2]: #tutor "具体方法"
+
+
+</div><!-- end of wrapper -->
+
+<script type="text/javascript">
+$(function(){
+    // stupid tabs implementation
+    $('.tabs').hide();
+    $('.tabanchor').removeClass('tabactivate');
+    if ($.browser.msie) {
+       $('#msie').addClass('tutactivate').show();
+       $('#tie').addClass('tabactivate');
+    } else if($.browser.safari) {
+       $('#chrome').addClass('tutactivate').show();
+       $('#tcm').addClass('tabactivate');
+    } else if($.browser.opera) {
+       $('#opera').addClass('tutactivate').show();
+       $('#toa').addClass('tabactivate');
+    } else if($.browser.mozilla) {
+       $('#firefox').addClass('tutactivate').show();
+       $('#tff').addClass('tabactivate');
+    } else {
+       $('.tutactivate').show()
+       $('#tie').addClass('tabactivate');
+    }
+
+    $('.tabanchor').click(function(e){
+        e.preventDefault();
+        $('.tabactivate').removeClass('tabactivate');
+        $(this).addClass('tabactivate');
+        $('.tabs').hide();
+        $( $(this).attr('href') ).addClass('tutactivate').show();
+    });
+
+    $('#bigbutton').click(function(e){
+        alert('请将图标拖放到书签栏，或者右键单击图标选择添加到收藏夹。');
+        e.preventDefault();
+    });
+
+}());
+</script>
+</body>
