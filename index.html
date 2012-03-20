@@ -16,6 +16,7 @@
 
 <h1>优酷循环播放</h1>
 <p><span id="intro">想让优酷上的视频循环播放？恭喜你找对地方了！<br />将下面的图标拖放到书签栏开始使用</span></p>
+<p><span id="notice">2012.3.20 优酷播放器现在已经自带循环播放功能了！<br />在播放时间显示的右边有个循环按钮。</span></p>
 <div id="buttondiv">
     <a id="bigbutton" href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a>
 </div>
@@ -63,7 +64,7 @@
 
 <div id="msie" class="tabs tutactivate">
 
-<p>如下图所示，打开 IE 的书签栏(右键点击菜单，勾选 收藏夹栏，对于 IE6 收藏夹边栏也可)。右键单击此链接 <a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a> 选择 添加到收藏夹，并将其保存到 收藏夹栏 中即可。</p>
+<p>如下图所示，打开 IE 的书签栏(右键点击菜单，勾选 收藏夹栏，对于 IE6 收藏夹边栏也可)。将此链接 <a href='javascript:void ((function(){var d=$("movie_player");if(!d.getNsData||$("_ykl_oop_")){return}var a=function(){var e=d.getNsData();if(parseFloat(e.alltime)-parseFloat(e.time)<1.1){d.nsseek(0);d.PlayerResume()}};var c=setInterval(a,500);if(typeof setPf==="function"){setPf({checked:false})}var b=new Element("span",{id:"_ykl_oop_",style:"color:red;cursor:pointer;"});b.update("&#8734; ");$$("h1 span")[0].insert({after:b});b.observe("click",function(e){clearInterval(c);b.remove()})})());' title="优酷循环播放">优酷循环播放</a> 拖放到书签栏上即可。对于 IE6,7 用户请右键单击前面的链接，选择 添加到收藏夹，将其保存到 收藏夹栏 中即可。</p>
 <p><img alt="IE 书签栏" src="ie.png" /></p>
 </div>
 
@@ -91,7 +92,7 @@
 <p><img alt="Safari 书签栏" src="safari.png" /></p>
 </div>
 
-</div><!-- end of wrapper -->
+<p></div><!-- end of wrapper --></p>
 <script type="text/javascript">
 $(function(){
     // stupid tabs implementation
@@ -128,18 +129,5 @@ $('#bigbutton').click(function(e){
     });
 
 }());
-</script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-19918082-2']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
 </script>
 </body>

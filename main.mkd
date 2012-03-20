@@ -20,6 +20,8 @@
 
 <span id="intro">想让优酷上的视频循环播放？恭喜你找对地方了！<br />将下面的图标拖放到书签栏开始使用</span>
 
+<span id="notice">2012.3.20 优酷播放器现在已经自带循环播放功能了！<br />在播放时间显示的右边有个循环按钮。</span>
+
 <div id="buttondiv">
     <a id="bigbutton" href="__this_is_to_be_replaced__" title="优酷循环播放">优酷循环播放</a>
 </div>
