@@ -81,6 +81,10 @@ hr {
 }
 
 /* layouts */
+#notice {
+    color: red;
+}
+
 #wrapper {
     margin: 0 auto;
     width: 640px;
