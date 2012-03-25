@@ -56,7 +56,7 @@
 代码: <https://github.com/jagt/youku-loop>  
 参考: [YoukuSS userscript](http://userscripts.org/scripts/show/84972), [Delicious Bookmarklet Help](http://www.delicious.com/help/bookmarklets)
 
-如果你遇到问题请联系 <jagttt16@gmail.com> 。
+如果你遇到问题请联系 <jagttt@gmail.com> 。
 
 <h2 id="tutor">浏览器设置步骤</h2>
 
