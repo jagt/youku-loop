@@ -52,9 +52,7 @@
 
 已知问题
 
-
 * 不能在嵌入优酷播放器的非 youku.com 页面上工作
-* 视频最后一秒钟在循环时总是没有播放
 
 代码: <https://github.com/jagt/youku-loop>  
 参考: [YoukuSS userscript](http://userscripts.org/scripts/show/84972), [Delicious Bookmarklet Help](http://www.delicious.com/help/bookmarklets)
