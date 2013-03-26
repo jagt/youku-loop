@@ -1,5 +1,5 @@
 @echo off
-python C:\Python26\Scripts\markdown main.mkd -f index.temp
+pandoc -f markdown -t html -o index.temp main.mkd
 replacelink.py index.temp index.html
 echo "replaced"
 rm index.temp

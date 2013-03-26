@@ -2,7 +2,7 @@ body{
     font-family: 微软雅黑, 宋体, Tahoma, sans-serif;
     color: #444444;
     line-height: 1;
-    width: 100%;
+    width: 95%;
 }
 h1, h2, h3, h4 {
     font-family: 微软雅黑, 黑体, Tahoma, sans-serif;
@@ -115,5 +115,3 @@ hr {
 .tutactivate {
     display: block;
 }
-
-
